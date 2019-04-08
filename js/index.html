@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+
+    <style>
+        #text {
+            transition: 4s ease-in-out color;
+            font-size: 40px;
+        }
+    </style>
+
+    <script>
+        const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+
+        function *nextColor() {
+            let i = 0;
+            let reverse = false;
+            while (true) {
+                yield colors[i];
+
+                reverse ? i-- : i++;
+                if (i === colors.length - 1) {
+                    reverse = true;
+                }
+                if (i === 0) {
+                    reverse = false
+                }
+            }
+        }
+
+        window.onload = () => {
+            const element = document.querySelector('#text');
+            const colorGenerator = nextColor();
+            const changeColor = () => {
+                const nextColor = colorGenerator.next();
+                element.style.color = nextColor.value;
+            }
+
+            changeColor();
+            setInterval(changeColor, 4000);
+        }
+    </script>
+</head>
+<body>
+
+    <p id="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem consectetur dolor eligendi esse, excepturi, facere incidunt laboriosam molestias nam natus nesciunt possimus quaerat quia tempore totam ullam ut vero voluptates. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem consectetur dolor eligendi esse, excepturi, facere incidunt laboriosam molestias nam natus nesciunt possimus quaerat quia tempore totam ullam ut vero voluptates. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem consectetur dolor eligendi esse, excepturi, facere incidunt laboriosam molestias nam natus nesciunt possimus quaerat quia tempore totam ullam ut vero voluptates. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem consectetur dolor eligendi esse, excepturi, facere incidunt laboriosam molestias nam natus nesciunt possimus quaerat quia tempore totam ullam ut vero voluptates.
+    </p>
+
+</body>
+</html>
