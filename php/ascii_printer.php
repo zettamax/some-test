@@ -8,14 +8,15 @@ $items = [
         'Color' => 'Green',
         'Element' => 'Earth',
         'Likes' => 'Flowers',
-        'Extra' => 'Foo'
+        'Extra' => 'Foo',
+        'Averyveryveryveryveryveryverylongcolumnname' => 'Bar',
     ],
     [
         'Name' => 'Tinkerbell',
         'Element' => 'Air',
         'Likes' => 'Singing',
         'Color' => 'Blue',
-        'Extra' => 'Averyveryveryveryveryverylongstring'
+        'Extra' => 'Averyveryveryveryveryverylongstring',
     ],
     [
         'Name' => 'Blum',
